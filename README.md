@@ -1,6 +1,6 @@
 # Kraenk Nova Mailcoach
 
-Still under construction. Not ready for use yet!!!
+**IMPORTANT: Still under construction. Not ready for use yet!!!**
 
 ### Publish the Mailcoach config file
 Optionally, You can publish the config file with this command.
