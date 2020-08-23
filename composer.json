@@ -1,0 +1,50 @@
+{
+    "name": "kraenkvisuell/nova-mailcoach",
+    "description": "Mailcoach Laravel Nova",
+    "keywords": [
+        "laravel",
+        "nova",
+        "layout"
+    ],
+    "license": "MIT",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        },
+        {
+            "type": "composer",
+            "url": "https://satis.mailcoach.app"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kraenkvisuell\\NovaMailcoach\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kraenkvisuell\\NovaMailcoach\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "laravel/nova": "~3.0",
+        "orchestra/testbench": "^5.3",
+        "phpunit/phpunit": "^9.2"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kraenkvisuell\\NovaMailcoach\\NovaMailcoachServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "spatie/laravel-mailcoach": "^2.0.0"
+    }
+}
