@@ -141,6 +141,10 @@ table.block.is-link-list li {
     font-family: 'Bebas Neue', Helvetica, arial, sans-serif;
     text-transform: uppercase;
 }
+table.block.is-link-list li a {
+    text-decoration: underline;
+}
+
 table.block.is-link-list li p {
     padding: 0;
     margin: 0;
