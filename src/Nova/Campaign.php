@@ -122,8 +122,7 @@ class Campaign extends Resource
                         Select::make(__('width'), 'width')
                             ->options([
                                 '100' => '100%',
-                                '66' => '66% (100% on Smartphone)',
-                                '50' => '50% (66% on Smartphone)',
+                                '66' => '66%',
                             ]),
                         Text::make(__('link'), 'link')
                             ->help(__('should start with https:// or mailto:')),
