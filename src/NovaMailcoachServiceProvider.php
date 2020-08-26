@@ -18,8 +18,6 @@ class NovaMailcoachServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'nova-mailcoach');
 
-        $this->loadRoutesFrom(__DIR__.'/../vendor/spatie/laravel-mailcoach/routes/mailcoach-api.php');
-
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/nova-mailcoach', 'nova-mailcoach'),
         ]);
