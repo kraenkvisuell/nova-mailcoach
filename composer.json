@@ -17,10 +17,19 @@
             "url": "https://satis.mailcoach.app"
         }
     ],
+    "require": {
+        "eminiarts/nova-tabs": "^1.2",
+        "manogi/nova-tiptap": "^0.6.1",
+        "optimistdigital/nova-media-field": "^1.2",
+        "whitecube/nova-flexible-content": "^0.2.5"
+    },
     "autoload": {
         "psr-4": {
             "Kraenkvisuell\\NovaMailcoach\\": "src/"
-        }
+        },
+        "files": [
+            "src/Helpers/functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -35,7 +44,8 @@
     "require-dev": {
         "laravel/nova": "~3.0",
         "orchestra/testbench": "^5.3",
-        "phpunit/phpunit": "^9.2"
+        "phpunit/phpunit": "^9.2",
+        "spatie/laravel-mailcoach": "^2.0.0"
     },
     "extra": {
         "laravel": {
@@ -43,8 +53,5 @@
                 "Kraenkvisuell\\NovaMailcoach\\NovaMailcoachServiceProvider"
             ]
         }
-    },
-    "require": {
-        "spatie/laravel-mailcoach": "^2.0.0"
     }
 }
