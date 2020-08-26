@@ -1,5 +1,5 @@
 <style type="text/css">
-@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,300;0,400;1,300;1,400&family=Bebas+Neue&display=swap');
 
 * {
     /* outline: 1px solid red; */
@@ -103,8 +103,13 @@ table.block.is-image img {
 
 table.block.is-quote {
     text-align: center;
+}
+
+table.block.is-quote .quote {
     font-size: 20px;
     line-height: 30px;
+    font-weight: 300;
+    font-style: italic;
 }
 
 table.block.is-quote .quote-from {
