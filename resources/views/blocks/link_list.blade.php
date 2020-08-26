@@ -1,7 +1,6 @@
 <table class="block is-link-list">
     <tr>
         <td>
-
             @if($attributes->headline)
                 <div class="link-list-headline">
                     {{ $attributes->headline }}
@@ -10,12 +9,14 @@
 
             {!! nl2br($attributes->list) !!}
 
-            @if($attributes->button_link)
-                <div class="button-container">
-                    <a href="{{ $attributes->button_link }}" class="button">
-                        {{ $attributes->button_text ?: 'Mehr' }}
-                    </a>
-                </div>
+        </td>
+
+        <td class="list-button-container">
+            @if($attributes->button_image)
+
+                <a href="{{ $attributes->button_link }}">
+                    <img src="{{ mailcoachGetMediaUrl($attributes->button_image) }}">
+                </a>
             @endif
 
         </td>

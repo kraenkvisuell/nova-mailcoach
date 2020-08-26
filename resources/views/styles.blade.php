@@ -1,5 +1,5 @@
 <style type="text/css">
-@import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,300;0,400;1,300;1,400&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,300;0,400;1,300;1,400&family=Roboto+Condensed:wght@700&display=swap');
 
 * {
     /* outline: 1px solid red; */
@@ -22,11 +22,11 @@ body, #bodyTable {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 400;
+    font-weight: 700;
     font-size: 25px;
     line-height: 28px;
     letter-spacing: 0.04em;
-    font-family: 'Bebas Neue', Helvetica, arial, sans-serif;
+    font-family: 'Roboto Condensed', Helvetica, arial, sans-serif;
     text-transform: uppercase;
 }
 
@@ -85,8 +85,9 @@ table.block.is-divider > tr > td {
 table.block.is-heading {
     text-align: center;
 }
-table.block.is-heading .headline {
-
+table.block.is-heading h1.headline {
+    font-size: 35px;
+    line-height: 40px;
 }
 table.block.is-heading .topline {
     font-size: 13px;
@@ -119,6 +120,19 @@ table.block.is-quote .quote-from {
     padding-bottom: 9px;
 }
 
+table.block.is-link-list td {
+    width: 60%;
+    vertical-align: middle;
+}
+table.block.is-link-list td.list-button-container {
+    width: 40%;
+    text-align: right;
+}
+table.block.is-link-list td.list-button-container img {
+    width: 100%;
+    height: auto;
+}
+
 table.block.is-link-list .link-list-headline {
     font-size: 13px;
     line-height: 20px;
@@ -135,10 +149,10 @@ table.block.is-link-list li {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 25px;
-    line-height: 40px;
+    font-size: 20px;
+    line-height: 38px;
     letter-spacing: 0.04em;
-    font-family: 'Bebas Neue', Helvetica, arial, sans-serif;
+    font-family: 'Roboto Condensed', Helvetica, arial, sans-serif;
     text-transform: uppercase;
 }
 table.block.is-link-list li a {
@@ -169,7 +183,7 @@ table.block.is-social-links .hashtag {
     font-size: 25px;
     line-height: 28px;
     letter-spacing: 0.04em;
-    font-family: 'Bebas Neue', Helvetica, arial, sans-serif;
+    font-family: 'Roboto Condensed', Helvetica, arial, sans-serif;
     text-transform: uppercase;
     margin-bottom: 12px;
 }
@@ -199,7 +213,7 @@ table.block.is-divider {
     font-size:12px;
     line-height: 12px;
     letter-spacing: 0.04em;
-    font-family: 'Bebas Neue', Helvetica, arial, sans-serif;
+    font-family: 'Roboto Condensed', Helvetica, arial, sans-serif;
     text-transform: uppercase;
     text-decoration: none;
     padding-top: 8px;
@@ -208,7 +222,7 @@ table.block.is-divider {
     padding-right: 14px;
 }
 
-table.header, table.secondary {
+table.header, table.secondary, table.footer {
     width: 100%;
 }
 table.header td {
@@ -221,6 +235,10 @@ table.header td img {
     height: 56px;
     width: auto;
     z-index: 2;
+}
+
+table.footer {
+    border-top: 2px solid #000000;
 }
 
 table.secondary {

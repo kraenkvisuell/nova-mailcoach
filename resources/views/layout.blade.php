@@ -23,6 +23,8 @@
                                         </td>
                                     </tr>
                                 </table>
+
+                                @includeIf('nova-mailcoach::footer')
                             </td>
                         </tr>
                     </table>

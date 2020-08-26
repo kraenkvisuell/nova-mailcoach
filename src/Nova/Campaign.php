@@ -145,7 +145,8 @@ class Campaign extends Resource
                             ->stacked(),
                         Text::make(__('button link'), 'button_link')
                             ->help(__('should start with https:// or mailto:')),
-                        Text::make(__('button text'), 'button_text'),
+                        MediaField::make(__('button image'), 'button_image')
+                            ->collection('buttons'),
                     ])
                     ->addLayout(__('social links'), 'social_links', [
                         Text::make(__('headline'), 'headline'),
