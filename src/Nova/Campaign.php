@@ -2,12 +2,12 @@
 
 namespace Kraenkvisuell\NovaMailcoach\Nova;
 
-use Eminiarts\Tabs\Tabs;
+use Kraenkvisuell\Tabs\Tabs;
 use Manogi\Tiptap\Tiptap;
 use Laravel\Nova\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Eminiarts\Tabs\TabsOnEdit;
+use Kraenkvisuell\Tabs\TabsOnEdit;
 use Kraenkvisuell\NovaMailcoach\Nova\Actions\SendCampaignTest;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Textarea;

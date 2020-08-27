@@ -2,11 +2,11 @@
 
 namespace Kraenkvisuell\NovaMailcoach\Nova;
 
-use Eminiarts\Tabs\Tabs;
+use Kraenkvisuell\Tabs\Tabs;
 use Laravel\Nova\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Eminiarts\Tabs\TabsOnEdit;
+use Kraenkvisuell\Tabs\TabsOnEdit;
 
 class EmailList extends Resource
 {

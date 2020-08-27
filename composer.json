@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "eminiarts/nova-tabs": "^1.2",
+        "kraenkvisuell/nova-tabs": "^2.0",
         "manogi/nova-tiptap": "^0.6.1",
         "optimistdigital/nova-media-field": "^1.2",
         "whitecube/nova-flexible-content": "^0.2.5"
