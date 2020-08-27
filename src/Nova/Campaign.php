@@ -169,7 +169,7 @@ class Campaign extends Resource
         ];
 
         return [
-            (new Tabs('Seite', $tabs))->withToolbar(),
+            (new Tabs(__('campaign'), $tabs))->withToolbar(),
         ];
     }
 
