@@ -28,13 +28,13 @@
     letter-spacing: 0.04em;
     font-family: 'Roboto Condensed', Helvetica, arial, sans-serif;
     text-transform: uppercase;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 #emailBody p {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 #emailBody {
