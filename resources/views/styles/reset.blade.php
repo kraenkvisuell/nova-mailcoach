@@ -1,13 +1,13 @@
-<style type="text/css">
+<style type="text/css" scoped>
 /* /\/\/\/\/\/\/\/\/ RESET STYLES /\/\/\/\/\/\/\/\/ */
-body{
+body {
     margin:0;
     padding:0;
     -webkit-text-size-adjust:100%;
     -ms-text-size-adjust:100%;
 }
 
-img{
+#emailBody img{
     border:0 none;
     height:auto;
     line-height:100%;
@@ -16,24 +16,24 @@ img{
     -ms-interpolation-mode:bicubic;
 }
 
-a img{
+#emailBody a img{
     border:0 none;
 }
 
-.imageFix{
+#emailBody .imageFix{
     display:block;
 }
 
-table{
+#emailBody table{
 mso-table-lspace:0pt;
 mso-table-rspace:0pt;
 }
 
-table, td{
+#emailBody table, #emailBody td{
     border-collapse:collapse;
 }
 
-td{
+#emailBody td{
     padding: 0;
 }
 

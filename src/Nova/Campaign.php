@@ -47,6 +47,14 @@ class Campaign extends Resource
     public function fields(Request $request)
     {
         $tabs = [
+            __('preview') => [
+                Text::make(__('content'), function () {
+                    return $this->html;
+                })
+                ->asHtml()
+                ->stacked()
+                ->onlyOnDetail(),
+            ],
             'Main' => [
                 Text::make(__('campaign title'), 'name')
                     ->rules('required')
@@ -164,6 +172,7 @@ class Campaign extends Resource
 
                     ])
                     ->button(__('add content block'))
+                    ->hideFromDetail()
                     ->stacked()
             ],
         ];

@@ -1,17 +1,16 @@
-<style type="text/css">
+<style type="text/css" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,300;0,400;1,300;1,400&family=Roboto+Condensed:wght@700&display=swap');
 
-* {
+#emailBody * {
     /* outline: 1px solid red; */
 }
 
-a {
+#emailBody a {
     color: #000000;
     text-decoration: none;
 }
 
-
-body, #bodyTable {
+#emailBody {
     background-image: url('{{ config('app.url')."/img/newsletter-bg.png" }}');
     background-repeat: repeat;
     font-family: Aleo, Georgia, serif;
@@ -21,7 +20,8 @@ body, #bodyTable {
     color: #000000;
 }
 
-h1, h2, h3, h4, h5, h6 {
+#emailBody h1, #emailBody h2, #emailBody h3, #emailBody h4, #emailBody h5, #emailBody h6 {
+    display: block;
     font-weight: 700;
     font-size: 25px;
     line-height: 28px;
@@ -30,40 +30,42 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
 }
 
-#bodyTable {
+#emailBody {
     border: 10px solid #ffffff;
 }
-#emailContainer > tr > td {
+
+#emailBody #emailContainer tr td {
     padding-left: 22px;
     padding-right: 22px;
 }
 
-table.blocks {
+#emailBody table.blocks {
     max-width: 440px;
 }
 
-table.block {
+#emailBody table.block {
     width: 100%;
+    display: table;
 }
 
-table.block.is-66 {
+#emailBody table.block.is-66 {
     width: 66%;
 }
 
-table.block.is-centered {
+#emailBody table.block.is-centered {
     text-align: center;
 }
 
-table.block.is-right {
+#emailBody table.block.is-right {
     text-align: right;
 }
 
-table.block.is-small {
+#emailBody table.block.is-small {
     font-size: 13px;
     line-height: 20px;
 }
 
-table.block.is-small h1,
+#emailBody table.block.is-small h1,
 table.block.is-small h2,
 table.block.is-small h3,
 table.block.is-small h4,
@@ -73,79 +75,84 @@ table.block.is-small h6 {
     line-height: 18px;
 }
 
-table.block > tr > td {
+#emailBody table.block tr td {
     padding-top: 12px;
     padding-bottom: 12px;
 }
 
-table.block.is-divider > tr > td {
+#emailBody table.block.is-divider tr td {
     padding-bottom: 2px;
 }
 
-table.block.is-heading {
+#emailBody table.block.is-heading {
     text-align: center;
 }
-table.block.is-heading h1.headline {
+
+#emailBody table.block.is-heading h1.headline {
     font-size: 35px;
     line-height: 40px;
 }
-table.block.is-heading .topline {
+
+#emailBody table.block.is-heading .topline {
     font-size: 13px;
     font-weight: bold;
     margin-bottom: 12px;
 }
 
-table.block.is-image img {
+#emailBody table.block.is-image img {
     width: 100%;
     height: auto;
     border: 5px solid white;
     box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.18);
 }
 
-table.block.is-quote {
+#emailBody table.block.is-quote {
     text-align: center;
 }
 
-table.block.is-quote .quote {
+#emailBody table.block.is-quote .quote {
     font-size: 20px;
     line-height: 30px;
     font-weight: 300;
     font-style: italic;
 }
 
-table.block.is-quote .quote-from {
+#emailBody table.block.is-quote .quote-from {
     font-size: 13px;
     line-height: 18px;
     padding-top: 17px;
     padding-bottom: 9px;
 }
 
-table.block.is-link-list td {
+#emailBody table.block.is-link-list td {
     width: 60%;
     vertical-align: middle;
 }
-table.block.is-link-list td.list-button-container {
+
+#emailBody table.block.is-link-list td.list-button-container {
     width: 40%;
     text-align: right;
 }
-table.block.is-link-list td.list-button-container img {
+
+#emailBody table.block.is-link-list td.list-button-container img {
     width: 100%;
     height: auto;
 }
 
-table.block.is-link-list .link-list-headline {
+#emailBody table.block.is-link-list .link-list-headline {
     font-size: 13px;
     line-height: 20px;
     font-weight: 700;
     margin-bottom: 12px;
 }
 
-table.block.is-link-list ul {
+#emailBody table.block.is-link-list ul {
     padding: 0;
     margin: 0;
     margin-bottom: 25px;
 }
-table.block.is-link-list li {
+
+#emailBody table.block.is-link-list li {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -155,31 +162,32 @@ table.block.is-link-list li {
     font-family: 'Roboto Condensed', Helvetica, arial, sans-serif;
     text-transform: uppercase;
 }
-table.block.is-link-list li a {
+
+#emailBody table.block.is-link-list li a {
     text-decoration: underline;
 }
 
-table.block.is-link-list li p {
+#emailBody table.block.is-link-list li p {
     padding: 0;
     margin: 0;
 }
 
-table.block.is-social-links {
+#emailBody table.block.is-social-links {
     text-align: center;
 }
 
-table.block.is-social-links td {
+#emailBody table.block.is-social-links td {
     padding-bottom: 35px;
 }
 
-table.block.is-social-links .social-links-headline {
+#emailBody table.block.is-social-links .social-links-headline {
     font-size: 13px;
     line-height: 20px;
     font-weight: 700;
     margin-bottom: 9px;
 }
 
-table.block.is-social-links .hashtag {
+#emailBody table.block.is-social-links .hashtag {
     font-size: 25px;
     line-height: 28px;
     letter-spacing: 0.04em;
@@ -188,7 +196,7 @@ table.block.is-social-links .hashtag {
     margin-bottom: 12px;
 }
 
-.social-icons-container img {
+#emailBody .social-icons-container img {
     display: inline-block;
     width: 42px;
     height: auto;
@@ -196,17 +204,17 @@ table.block.is-social-links .hashtag {
     margin-right: 12px;
 }
 
-table.block.is-divider {
+#emailBody table.block.is-divider {
     border-top: 1px solid black;
 }
 
-.button-container {
+#emailBody .button-container {
     text-align: center;
     padding-top: 4px;
     padding-bottom: 12px;
 }
 
-.button {
+#emailBody .button {
     display: inline-block;
     background-color: #509F53;
     color: white;
@@ -222,14 +230,16 @@ table.block.is-divider {
     padding-right: 14px;
 }
 
-table.header, table.secondary, table.footer {
+#emailBody table.header, table.secondary, table.footer {
     width: 100%;
 }
-table.header td {
+
+#emailBody table.header td {
     text-align: center;
     border-top: 5px solid #509F53;
 }
-table.header td img {
+
+#emailBody table.header td img {
     position: relative;
     top: -16px;
     height: 56px;
@@ -237,22 +247,22 @@ table.header td img {
     z-index: 2;
 }
 
-table.footer {
+#emailBody table.footer {
     border-top: 2px solid #000000;
 }
 
-table.secondary {
+#emailBody table.secondary {
     font-size: 10px;
     color: #999999;
     text-transform: uppercase;
 }
 
-table.secondary td {
+#emailBody table.secondary td {
     padding-top: 8px;
     padding-bottom: 6px;
 }
 
-table.secondary a {
+#emailBody table.secondary a {
     color: #999999;
     text-decoration: none;
 }

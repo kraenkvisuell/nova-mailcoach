@@ -1,7 +1,6 @@
 <table class="block is-social-links">
     <tr>
         <td>
-
             @if($attributes->headline)
                 <div class="social-links-headline">
                     {{ $attributes->headline }}

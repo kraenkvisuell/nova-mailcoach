@@ -8,7 +8,7 @@
         @includeIf('nova-mailcoach::styles')
     </head>
     <body>
-        <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+        <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="emailBody">
             <tr>
                 <td align="center" valign="top">
                     <table border="0" cellspacing="0" width="100%" id="emailContainer">
