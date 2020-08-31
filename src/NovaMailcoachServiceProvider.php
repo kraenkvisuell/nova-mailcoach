@@ -33,7 +33,7 @@ class NovaMailcoachServiceProvider extends ServiceProvider
             __DIR__ . '/../config/nova-mailcoach.php' => config_path('nova-mailcoach.php'),
         ], 'nova-mailcoach');
 
-        $this->loadRoutesFrom(__DIR__.'/../vendor/spatie/laravel-mailcoach/routes/mailcoach-api.php');
+        $this->loadRoutesFrom(base_path('vendor/spatie/laravel-mailcoach/routes/mailcoach-api.php'));
 
         Blade::component('nova-mailcoach::layout', 'layout');
 
