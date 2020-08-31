@@ -2,20 +2,24 @@
 
 namespace Kraenkvisuell\NovaMailcoach\Nova;
 
-use Kraenkvisuell\Tabs\Tabs;
+use Carbon\Carbon;
 use Manogi\Tiptap\Tiptap;
 use Laravel\Nova\Resource;
 use Illuminate\Http\Request;
+use Kraenkvisuell\Tabs\Tabs;
+use Laravel\Nova\Fields\Line;
 use Laravel\Nova\Fields\Text;
-use Kraenkvisuell\Tabs\TabsOnEdit;
-use Kraenkvisuell\NovaMailcoach\Nova\Actions\SendCampaignTest;
+use Laravel\Nova\Fields\Stack;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Textarea;
+use Kraenkvisuell\Tabs\TabsOnEdit;
 use Laravel\Nova\Fields\BelongsTo;
 use OptimistDigital\MediaField\MediaField;
 use Whitecube\NovaFlexibleContent\Flexible;
 use Kraenkvisuell\NovaMailcoach\Nova\EmailList;
-use Laravel\Nova\Fields\Select;
+use Kraenkvisuell\NovaMailcoach\Nova\Actions\SendCampaign;
+use Kraenkvisuell\NovaMailcoach\Nova\Actions\SendCampaignTest;
 
 class Campaign extends Resource
 {
@@ -59,14 +63,16 @@ class Campaign extends Resource
                 Text::make(__('campaign title'), 'name')
                     ->rules('required')
                     ->creationRules('unique:mailcoach_campaigns,name')
-                    ->updateRules('unique:mailcoach_campaigns,name,{{resourceId}}'),
+                    ->updateRules('unique:mailcoach_campaigns,name,{{resourceId}}')
+                    ->hideFromIndex(),
 
                 Text::make(__('subject'), 'subject_field')
                     ->rules('required')
                     ->withMeta(['value' => $this->getOriginal('subject')])
                     ->hideFromIndex(),
 
-                BelongsTo::make(__('recipient list'), 'emailList', EmailList::class),
+                BelongsTo::make(__('recipient list'), 'emailList', EmailList::class)
+                    ->hideFromIndex(),
 
                 Text::make(__('sender E-mail'), 'from_email')
                     ->rules('nullable', 'email')
@@ -178,6 +184,26 @@ class Campaign extends Resource
         ];
 
         return [
+            Stack::make('Details', [
+                    Line::make(__('campaign title'), 'name')
+                        ->asHeading(),
+
+                    Line::make(__('recipient list'), function () {
+                        return __('email list').': '.$this->emaillist->name;
+                    })
+                    ->asSmall(),
+                ])
+                ->onlyOnIndex(),
+            Text::make(__('status'), function () {
+                if ($this->status == 'sent') {
+                    return __('sent at').' '.Carbon::parse($this->sent_at)->format('d.m.Y, H:i:s')
+                        .'<br>'.str_replace('{number}', $this->sent_to_number_of_subscribers, __('to {number} recipient(s)'));
+                }
+
+                return __($this->status);
+            })
+            ->asHtml()
+            ->onlyOnIndex(),
             (new Tabs(__('campaign'), $tabs))->withToolbar(),
         ];
     }
@@ -189,7 +215,17 @@ class Campaign extends Resource
                 ->showOnTableRow()
                 ->showOnDetail()
                 ->exceptOnIndex()
-                ->confirmButtonText(__('send test e-mail')),
+                ->confirmButtonText(__('send test e-mail'))
+                ->canSee(function () {
+                    return auth()->user()->can('sendTestMail', $this->resource);
+                }),
+            (new SendCampaign)
+                ->showOnDetail()
+                ->exceptOnIndex()
+                ->confirmButtonText(__('send campaign to list'))
+                ->canSee(function () {
+                    return auth()->user()->can('send', $this->resource);
+                }),
         ];
     }
 }

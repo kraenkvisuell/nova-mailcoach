@@ -2,16 +2,16 @@
 
 namespace Kraenkvisuell\NovaMailcoach\Nova;
 
-use Kraenkvisuell\Tabs\Tabs;
 use Laravel\Nova\Resource;
 use Illuminate\Http\Request;
+use Kraenkvisuell\Tabs\Tabs;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\HasMany;
 use Kraenkvisuell\Tabs\TabsOnEdit;
+use Kraenkvisuell\NovaMailcoach\Nova\Actions\ImportSubscribers;
 
 class EmailList extends Resource
 {
-    use TabsOnEdit;
-
     public static $model = \Spatie\Mailcoach\Models\EmailList::class;
 
     public function title()
@@ -27,38 +27,44 @@ class EmailList extends Resource
 
     public static function label()
     {
-        return 'Empfänger-Listen';
+        return __('email lists');
     }
 
     public static function singularLabel()
     {
-        return 'Empfänger-Liste';
+        return __('email list');
     }
 
     public function fields(Request $request)
     {
-        $tabs = [
-            'Main' => [
-                Text::make('Listen-Name', 'name')
-                    ->rules('required')
-                    ->creationRules('unique:mailcoach_email_lists,name')
-                    ->updateRules('unique:mailcoach_email_lists,name,{{resourceId}}'),
-
-                Text::make('Absender-E-Mail', 'default_from_email')
-                    ->rules([
-                        'required',
-                        'email',
-                    ]),
-
-                Text::make('Absender-Name', 'default_from_name')
-                    ->rules([
-                        'required',
-                    ]),
-            ],
-        ];
-
         return [
-            (new Tabs('Seite', $tabs))->withToolbar(),
+            Text::make('Listen-Name', 'name')
+                ->rules('required')
+                ->creationRules('unique:mailcoach_email_lists,name')
+                ->updateRules('unique:mailcoach_email_lists,name,{{resourceId}}'),
+
+            Text::make('Absender-E-Mail', 'default_from_email')
+                ->rules([
+                    'required',
+                    'email',
+                ]),
+
+            Text::make('Absender-Name', 'default_from_name')
+                ->rules([
+                    'required',
+                ]),
+
+            HasMany::make(__('subscribers'), 'subscribers', 'Kraenkvisuell\NovaMailcoach\Nova\Subscriber'),
+        ];
+    }
+
+    public function actions(Request $request)
+    {
+        return [
+            (new ImportSubscribers)
+                ->showOnDetail()
+                ->exceptOnIndex()
+                ->confirmButtonText(__('import subscribers')),
         ];
     }
 }
