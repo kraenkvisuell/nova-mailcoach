@@ -37,6 +37,7 @@ class SubscribersImport implements ToCollection, WithHeadingRow
                         'first_name' => $firstName,
                         'last_name' => $lastName,
                         'email_list_id' => $this->emailListId,
+                        'extra_attributes' => $this->getExtraAttributes($row),
                         'subscribed_at' => Carbon::now()
                     ]
                 );
@@ -53,5 +54,37 @@ class SubscribersImport implements ToCollection, WithHeadingRow
     public function getNotImportedRowCount(): int
     {
         return $this->notImportedRows;
+    }
+
+    protected function getExtraAttributes($row)
+    {
+        $extraAttributes = [];
+
+        $ignore = ['email', 'e-mail', 'e_mail', 'first_name', 'last_name', 'vorname', 'nachname'];
+
+        $map = [
+            'gender' => ['geschlecht', 'sex'],
+            'salutation' => ['anrede'],
+            'title' => ['titel'],
+            'city' => ['ort'],
+            'postcode' => ['zip', 'plz', 'postleitzahl'],
+        ];
+
+        foreach ($row as $rowKey => $rowValue) {
+            $rowKey = trim(strtolower($rowKey));
+            if ($rowKey && !in_array($rowKey, $ignore)) {
+                foreach ($map as $mapKey => $aliases) {
+                    if (in_array($rowKey, $aliases) || $rowKey == $mapKey) {
+                        if ($mapKey == 'gender' && $rowValue == 'w') {
+                            $rowValue = 'f';
+                        }
+
+                        $extraAttributes[$mapKey] = $rowValue;
+                    }
+                }
+            }
+        }
+
+        return $extraAttributes;
     }
 }

@@ -27,6 +27,11 @@ class CampaignPolicy
         return true;
     }
 
+    public function duplicate(User $user, Campaign $campaign)
+    {
+        return true;
+    }
+
     public function sendTestMail(User $user, Campaign $campaign)
     {
         return $campaign->status != 'sent' && $campaign->status != 'sending';

@@ -19,6 +19,7 @@
     ],
     "require": {
         "anaseqal/nova-import": "^0.0.6",
+        "armincms/json": "^0.5.2",
         "kraenkvisuell/nova-tabs": "^2.0",
         "manogi/nova-tiptap": "^0.6.1",
         "optimistdigital/nova-media-field": "^1.2",

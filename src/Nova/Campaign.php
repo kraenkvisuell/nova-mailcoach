@@ -20,6 +20,7 @@ use Whitecube\NovaFlexibleContent\Flexible;
 use Kraenkvisuell\NovaMailcoach\Nova\EmailList;
 use Kraenkvisuell\NovaMailcoach\Nova\Actions\SendCampaign;
 use Kraenkvisuell\NovaMailcoach\Nova\Actions\SendCampaignTest;
+use Kraenkvisuell\NovaMailcoach\Nova\Actions\DuplicateCampaign;
 
 class Campaign extends Resource
 {
@@ -83,11 +84,11 @@ class Campaign extends Resource
                     ->help(__('if different from sender of recipient list'))
                     ->hideFromIndex(),
 
-                Boolean::make(__('track opens'), 'track_opens')
-                    ->hideFromIndex(),
+                // Boolean::make(__('track opens'), 'track_opens')
+                //     ->hideFromIndex(),
 
-                Boolean::make(__('track clicks'), 'track_clicks')
-                    ->hideFromIndex(),
+                // Boolean::make(__('track clicks'), 'track_clicks')
+                //     ->hideFromIndex(),
             ],
             ucfirst(__('content')) => [
                 Flexible::make(__('content'), 'structured_html')
@@ -225,6 +226,13 @@ class Campaign extends Resource
                 ->confirmButtonText(__('send campaign to list'))
                 ->canSee(function () {
                     return auth()->user()->can('send', $this->resource);
+                }),
+            (new DuplicateCampaign)
+                ->showOnTableRow()
+                ->exceptOnIndex()
+                ->confirmButtonText(__('duplicate campaign'))
+                ->canRun(function ($request, $model) {
+                    return auth()->user()->can('duplicate', $this->resource);
                 }),
         ];
     }
