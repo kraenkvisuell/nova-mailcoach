@@ -24,7 +24,7 @@ class SubscribersImport implements ToCollection, WithHeadingRow
         foreach ($rows as $row) {
             $email = $row['email'] ?? ($row['e-mail'] ?? @$row['e_mail']);
 
-            if ($email) {
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $firstName = $row['first_name'] ?? ($row['firstname'] ?? @$row['vorname']);
                 $lastName = $row['last_name'] ?? ($row['lastname'] ?? @$row['nachname']);
                 $this->importedRows++;
