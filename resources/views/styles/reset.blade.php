@@ -1,4 +1,4 @@
-<style type="text/css" scoped>
+<style type="text/css">
 /* /\/\/\/\/\/\/\/\/ RESET STYLES /\/\/\/\/\/\/\/\/ */
 body {
     margin:0;

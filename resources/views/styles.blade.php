@@ -1,4 +1,4 @@
-<style type="text/css" scoped>
+<style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,300;0,400;1,300;1,400&family=Roboto+Condensed:wght@700&display=swap');
 
 #emailBody * {
@@ -14,9 +14,9 @@
     background-image: url('{{ config('app.url')."/img/newsletter-bg.png" }}');
     background-repeat: repeat;
     font-family: Aleo, Georgia, serif;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 400;
-    line-height: 23px;
+    line-height: 26px;
     color: #000000;
 }
 
@@ -47,7 +47,7 @@
 }
 
 #emailBody table.blocks {
-    max-width: 440px;
+    max-width: 560px;
 }
 
 #emailBody table.block {
@@ -83,17 +83,26 @@ table.block.is-small h6 {
 }
 
 #emailBody table.block tr td {
-    padding-top: 12px;
-    padding-bottom: 12px;
+
+}
+
+#emailBody table.block.is-divider {
+    margin-top: 10px;
 }
 
 #emailBody table.block.is-divider tr td {
-    padding-bottom: 2px;
+    padding-bottom: 20px;
 }
 
 #emailBody table.block.is-heading {
     text-align: center;
 }
+
+#emailBody table.block.is-text td {
+    padding-bottom: 12px;
+}
+
+
 
 #emailBody table.block.is-heading h1.headline {
     font-size: 35px;
@@ -259,7 +268,9 @@ table.block.is-small h6 {
 }
 
 #emailBody table.secondary {
-    font-size: 10px;
+    font-family: 'Roboto Condensed', Helvetica, arial, sans-serif;
+    font-weight: 700;
+    font-size: 11px;
     color: #999999;
     text-transform: uppercase;
 }
