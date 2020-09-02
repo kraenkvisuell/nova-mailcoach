@@ -18,6 +18,9 @@ use Laravel\Nova\Fields\BelongsTo;
 use OptimistDigital\MediaField\MediaField;
 use Whitecube\NovaFlexibleContent\Flexible;
 use Kraenkvisuell\NovaMailcoach\Nova\EmailList;
+use Kraenkvisuell\NovaMailcoach\Metrics\OpenRate;
+use Kraenkvisuell\NovaMailcoach\Metrics\ClickRate;
+use Kraenkvisuell\NovaMailcoach\Metrics\DeliveryRate;
 use Kraenkvisuell\NovaMailcoach\Nova\Actions\SendCampaign;
 use Kraenkvisuell\NovaMailcoach\Nova\Actions\SendCampaignTest;
 use Kraenkvisuell\NovaMailcoach\Nova\Actions\DuplicateCampaign;
@@ -235,5 +238,25 @@ class Campaign extends Resource
                     return auth()->user()->can('duplicate', $this->resource);
                 }),
         ];
+    }
+
+    public function cards(Request $request)
+    {
+        $cards = [];
+
+        $campaign = $request->resourceId ? \Spatie\Mailcoach\Models\Campaign::find($request->resourceId) : null;
+        if (optional($campaign)->isSent()) {
+            $cards[] = (new DeliveryRate)->onlyOnDetail();
+
+            if ($campaign->track_opens) {
+                $cards[] = (new OpenRate)->onlyOnDetail();
+            }
+
+            if ($campaign->track_clicks) {
+                $cards[] = (new ClickRate)->onlyOnDetail();
+            }
+        }
+
+        return $cards;
     }
 }
