@@ -84,11 +84,11 @@ class Campaign extends Resource
                     ->help(__('if different from sender of recipient list'))
                     ->hideFromIndex(),
 
-                // Boolean::make(__('track opens'), 'track_opens')
-                //     ->hideFromIndex(),
+                Boolean::make(__('track opens'), 'track_opens')
+                    ->hideFromIndex(),
 
-                // Boolean::make(__('track clicks'), 'track_clicks')
-                //     ->hideFromIndex(),
+                Boolean::make(__('track clicks'), 'track_clicks')
+                    ->hideFromIndex(),
             ],
             ucfirst(__('content')) => [
                 Flexible::make(__('content'), 'structured_html')

@@ -13,7 +13,7 @@
 #emailBody {
     background-image: url('{{ config('app.url')."/img/newsletter-bg.png" }}');
     background-repeat: repeat;
-    font-family: Aleo, Georgia, serif;
+    font-family: 'Aleo', Georgia, serif;
     font-size: 17px;
     font-weight: 400;
     line-height: 26px;
