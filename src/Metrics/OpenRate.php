@@ -23,7 +23,7 @@ class OpenRate extends Partition
         ])
         ->colors([
             __('opened') => 'green',
-            __('not opened') => 'red',
+            __('not opened') => 'grey',
         ]);
     }
 

@@ -23,7 +23,7 @@ class ClickRate extends Partition
         ])
         ->colors([
             __('clicked') => 'green',
-            __('not clicked') => 'red',
+            __('not clicked') => 'grey',
         ]);
     }
 
