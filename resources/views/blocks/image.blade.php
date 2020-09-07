@@ -1,4 +1,4 @@
-<table class="block is-image is-{{ $attributes->width }}">
+<table class="block is-image is-{{ $attributes->width }} is-{{ $attributes->kind }}">
     <tr>
         <td>
             @if($attributes->link)

@@ -48,6 +48,7 @@
 
 #emailBody table.blocks {
     max-width: 560px;
+    margin-bottom: 50px;
 }
 
 #emailBody table.block {
@@ -120,6 +121,13 @@ table.block.is-small h6 {
     height: auto;
     border: 5px solid white;
     box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.18);
+}
+
+#emailBody table.block.is-image.is-transparent img {
+    width: 100%;
+    height: auto;
+    border: none;
+    box-shadow: none;
 }
 
 #emailBody table.block.is-quote {

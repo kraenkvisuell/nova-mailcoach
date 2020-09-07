@@ -25,6 +25,7 @@
     "file": "Datei",
     "first name": "Vorname",
     "last name": "Nachname",
+    "default": "Normal",
     "from": "von",
     "gender": "Geschlecht",
     "header": "Header",
@@ -32,6 +33,7 @@
     "if different from sender of recipient list": "Wenn abweichend vom Absender der Empfänger-Liste",
     "image": "Bild",
     "import subscribers": "Empfänger importieren",
+    "kind": "Art",
     "large": "groß",
     "left": "links",
     "link list": "Link-Liste",
@@ -73,5 +75,6 @@
     "the subscribers are being imported": "Die Empfänger werden importiert",
     "track clicks": "Klicks tracken",
     "track opens": "Öffnungen tracken",
+    "transparent": "Produktbild (transparenter Hintergrund)",
     "width": "Breite"
 }

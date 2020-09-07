@@ -142,6 +142,10 @@ class Campaign extends Resource
                                 '100' => '100%',
                                 '66' => '66%',
                             ]),
+                        Select::make(__('kind'), 'kind')
+                            ->options([
+                                'transparent' => __('transparent'),
+                            ]),
                         Text::make(__('link'), 'link')
                             ->help(__('should start with https:// or mailto:')),
                     ])

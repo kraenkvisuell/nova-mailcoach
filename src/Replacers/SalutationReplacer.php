@@ -18,7 +18,6 @@ class SalutationReplacer implements PersonalizedReplacer
     {
         $salutation = $pendingSend->subscriber->extra_attributes->salutation
             .' '.$pendingSend->subscriber->extra_attributes->title
-            .' '.$pendingSend->subscriber->first_name
             .' '.$pendingSend->subscriber->last_name;
 
         return str_ireplace('::salutation::', $salutation, $html);
