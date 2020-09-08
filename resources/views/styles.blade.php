@@ -238,7 +238,7 @@ table.block.is-small h6 {
 
 #emailBody .button-container {
     text-align: center;
-    padding-top: 4px;
+    padding-top: 14px;
     padding-bottom: 12px;
 }
 
