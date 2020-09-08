@@ -5,7 +5,6 @@ namespace Kraenkvisuell\NovaMailcoach\Nova;
 use Armincms\Json\Json;
 use Laravel\Nova\Resource;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\Line;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Stack;
