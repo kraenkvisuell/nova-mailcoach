@@ -7,7 +7,7 @@
         </td>
 
         <td class="header-text" style="text-align: right">
-            <a href="#">Newsletter Abbestellen</a>
+            <a href="::unsubscribeUrl::">Newsletter Abbestellen</a>
         </td>
     </tr>
 </table>
