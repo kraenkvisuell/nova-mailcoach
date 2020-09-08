@@ -14,9 +14,9 @@
     background-image: url('{{ config('app.url')."/img/newsletter-bg.png" }}');
     background-repeat: repeat;
     font-family: 'Aleo', Georgia, serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 26px;
+    line-height: 24px;
     color: #000000;
 }
 
@@ -28,13 +28,13 @@
     letter-spacing: 0.04em;
     font-family: 'Roboto Condensed', Helvetica, arial, sans-serif;
     text-transform: uppercase;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 #emailBody p {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 #emailBody {
@@ -101,6 +101,10 @@ table.block.is-small h6 {
 
 #emailBody table.block.is-text td {
     padding-bottom: 12px;
+}
+
+#emailBody table.block.is-image td {
+    padding-bottom: 20px;
 }
 
 

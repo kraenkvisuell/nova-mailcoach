@@ -22,7 +22,7 @@ class EmailList extends Resource
     public static $group = 'Newsletter';
 
     public static $search = [
-        'name',
+        'name'
     ];
 
     public static function label()
