@@ -104,6 +104,7 @@ table.block.is-small h6 {
 }
 
 #emailBody table.block.is-image td {
+    padding-top: 10px;
     padding-bottom: 20px;
 }
 
