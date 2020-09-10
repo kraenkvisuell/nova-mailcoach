@@ -9,6 +9,9 @@ use Laravel\Nova\Fields\Line;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Stack;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\DateTime;
+use Kraenkvisuell\NovaMailcoach\Nova\Actions\Resubscribe;
+use Kraenkvisuell\NovaMailcoach\Filters\SubscriptionStatus;
 
 class Subscriber extends Resource
 {
@@ -35,6 +38,15 @@ class Subscriber extends Resource
     public function fields(Request $request)
     {
         return [
+            Text::make(__('status'), 'unsubscribed_at', function ($value) {
+                if ($value) {
+                    return '<span class="bg-danger text-white uppercase text-xs font-bold px-2 py-1 rounded leading-none">'.__('unsubscribed').'</span>';
+                }
+                return '';
+            })
+                ->asHtml()
+                ->onlyOnIndex(),
+
             Stack::make('Details', [
                 Line::make(__('e-mail'), 'email')
                     ->asHeading(),
@@ -42,6 +54,16 @@ class Subscriber extends Resource
                 Line::make(__('name'), function () {
                     return trim($this->first_name.' '.$this->last_name) ?: '–';
                 }),
+            ])
+            ->onlyOnIndex(),
+
+            Stack::make(__('subscription'), [
+                DateTime::make(__('subscribed at'), 'subscribed_at'),
+
+                Text::make(__('unsubscribed at'), 'unsubscribed_at', function ($value) {
+                    return '<span class="text-danger">'.$value.'</span>';
+                })
+                ->asHtml(),
             ])
             ->onlyOnIndex(),
 
@@ -77,6 +99,27 @@ class Subscriber extends Resource
                 Text::make(__('title'), 'title')
                     ->hideFromIndex(),
             ]),
+        ];
+    }
+
+    public function filters(Request $request)
+    {
+        return [
+            new SubscriptionStatus(),
+        ];
+    }
+
+    public function actions(Request $request)
+    {
+        return [
+            (new Resubscribe)
+                ->showOnTableRow()
+                ->exceptOnIndex()
+                ->confirmButtonText(__('really resubscribe'))
+                ->canSee(function () {
+                    return auth()->user()->can('resubscribe', $this->resource);
+                })
+                ->withoutActionEvents(),
         ];
     }
 }

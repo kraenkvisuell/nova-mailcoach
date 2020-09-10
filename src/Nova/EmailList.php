@@ -54,7 +54,7 @@ class EmailList extends Resource
                     'required',
                 ]),
 
-            HasMany::make(__('subscribers'), 'subscribers', 'Kraenkvisuell\NovaMailcoach\Nova\Subscriber'),
+            HasMany::make(__('subscribers'), 'allSubscribers', 'Kraenkvisuell\NovaMailcoach\Nova\Subscriber'),
         ];
     }
 
