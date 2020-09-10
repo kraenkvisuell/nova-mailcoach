@@ -108,8 +108,6 @@ table.block.is-small h6 {
     padding-bottom: 20px;
 }
 
-
-
 #emailBody table.block.is-heading h1.headline {
     font-size: 35px;
     line-height: 40px;
