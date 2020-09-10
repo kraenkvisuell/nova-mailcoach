@@ -34,4 +34,12 @@ class SubscriberPolicy
         }
         return $subscriber->unsubscribed_at != null;
     }
+
+    public function unsubscribe(User $user, Subscriber $subscriber)
+    {
+        if (!$subscriber->id) {
+            return true;
+        }
+        return $subscriber->unsubscribed_at == null;
+    }
 }

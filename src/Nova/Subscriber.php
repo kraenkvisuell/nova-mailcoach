@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\Stack;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\DateTime;
 use Kraenkvisuell\NovaMailcoach\Nova\Actions\Resubscribe;
+use Kraenkvisuell\NovaMailcoach\Nova\Actions\Unsubscribe;
 use Kraenkvisuell\NovaMailcoach\Filters\SubscriptionStatus;
 
 class Subscriber extends Resource
@@ -42,7 +43,7 @@ class Subscriber extends Resource
                 if ($value) {
                     return '<span class="bg-danger text-white uppercase text-xs font-bold px-2 py-1 rounded leading-none">'.__('unsubscribed').'</span>';
                 }
-                return '';
+                return '<span class="bg-success text-white uppercase text-xs font-bold px-2 py-1 rounded leading-none">'.__('active').'</span>';
             })
                 ->asHtml()
                 ->onlyOnIndex(),
@@ -118,6 +119,14 @@ class Subscriber extends Resource
                 ->confirmButtonText(__('really resubscribe'))
                 ->canSee(function () {
                     return auth()->user()->can('resubscribe', $this->resource);
+                })
+                ->withoutActionEvents(),
+            (new Unsubscribe)
+                ->showOnTableRow()
+                ->exceptOnIndex()
+                ->confirmButtonText(__('really unsubscribe'))
+                ->canSee(function () {
+                    return auth()->user()->can('unsubscribe', $this->resource);
                 })
                 ->withoutActionEvents(),
         ];
