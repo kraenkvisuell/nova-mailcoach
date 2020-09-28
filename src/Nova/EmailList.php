@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\HasMany;
 use Kraenkvisuell\Tabs\TabsOnEdit;
 use Kraenkvisuell\NovaMailcoach\Nova\Actions\ImportSubscribers;
+use Laravel\Nova\Fields\Boolean;
 
 class EmailList extends Resource
 {
@@ -47,12 +48,19 @@ class EmailList extends Resource
                 ->rules([
                     'required',
                     'email',
-                ]),
+                ])
+                ->hideFromIndex(),
 
             Text::make('Absender-Name', 'default_from_name')
                 ->rules([
                     'required',
-                ]),
+                ])
+                ->hideFromIndex(),
+
+            Boolean::make('Anmeldung per Formular', 'allow_form_subscriptions'),
+
+            Text::make('Betreff E-Mail-Bestätigung', 'confirmation_mail_subject')
+            ->hideFromIndex(),
 
             HasMany::make(__('subscribers'), 'allSubscribers', 'Kraenkvisuell\NovaMailcoach\Nova\Subscriber'),
         ];
