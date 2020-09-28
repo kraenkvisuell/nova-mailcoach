@@ -16,7 +16,6 @@ class SubscriptionForm extends Component
     public $email;
     public $first_name;
     public $last_name;
-    public $postcode;
     public $city;
 
     public $genders = [
@@ -43,7 +42,7 @@ class SubscriptionForm extends Component
                 'email' => 'Email-Addresse',
                 'first_name' => 'Vorname',
                 'last_name' => 'Nachname',
-                'privacyAccepted' => 'Datenschutzerklärung',
+                'privacyAccepted' => 'Hinweis',
             ]
         );
 
@@ -52,6 +51,7 @@ class SubscriptionForm extends Component
             'last_name' => $this->last_name,
             'extra_attributes' => [
                 'gender' => $this->gender,
+                'city' => $this->city,
             ],
         ];
 

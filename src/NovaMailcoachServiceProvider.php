@@ -69,7 +69,6 @@ class NovaMailcoachServiceProvider extends ServiceProvider
 
         NovaSettings::addSettingsFields([
             Tiptap::make('Anmelde-Formular Introtext', 'subscription_intro_text'),
-            Text::make('URL zur Datenschutzerklärung', 'privacy_url'),
         ]);
 
         $this->registerPolicies();

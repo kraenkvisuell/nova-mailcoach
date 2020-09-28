@@ -15,17 +15,13 @@
             :options="$genders"
         />
 
-        <x-nova-mailcoach::form-field label="Postleitzahl" name="postcode" />
-
         <x-nova-mailcoach::form-field label="Ort" name="city" />
     </div>
 
     <div class="flex">
         <input type="checkbox" wire:model="privacyAccepted" class="mr-2 mt-1">
         <span class="leading-snug text-sm">
-        Hiermit erkläre ich, die
-        <a href="{{ nova_get_setting('privacy_url') }}" target="_blank" class="underline">Datenschutzerklärung</a>
-        gelesen zu haben und diese zu akzeptieren.
+            Hiermit willige ich ein, dass meine Daten zum Versand des personalisierten Newsletters gespeichert werden. Ich kann meine Einwilligung jederzeit widerrufen und den Newsletter abbestellen.
         </span>
     </div>
 
